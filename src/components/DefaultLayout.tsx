@@ -12,7 +12,9 @@ export const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <main className="h-screen">{children}</main>
+      <main className="h-screen">
+        <div className="m-2">{children}</div>
+      </main>
     </>
   );
 };
