@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import type { AppType, AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
+import { ThemeProvider } from 'next-themes';
 
 import { DefaultLayout } from '~/components/DefaultLayout';
 import { trpc } from '~/utils/trpc';
@@ -19,7 +20,12 @@ type AppPropsWithLayout = AppProps & {
 
 const MyApp = (({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout =
-    Component.getLayout ?? ((page) => <DefaultLayout>{page}</DefaultLayout>);
+    Component.getLayout ??
+    ((page) => (
+      <ThemeProvider attribute="class" defaultTheme="light">
+        <DefaultLayout>{page}</DefaultLayout>
+      </ThemeProvider>
+    ));
 
   return getLayout(<Component {...pageProps} />);
 }) as AppType;

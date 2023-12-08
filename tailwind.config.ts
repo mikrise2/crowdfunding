@@ -5,6 +5,7 @@ const config: Config = {
     './node_modules/flowbite-react/**/*.js',
     './src/{pages,components}/**/*.{js,ts,jsx,tsx}',
   ],
+  darkMode: ['class'],
   theme: {
     extend: {},
   },
